@@ -28,7 +28,33 @@ void	free_map(char **map)
 		free(map[i++]);
 	free(map);
 }
-
+void destroy_img(t_game *game)
+{
+	if(game -> wall)
+		mlx_destroy_image(game -> mlx, game -> wall);
+	if(game -> floor)
+		mlx_destroy_image(game -> mlx, game -> floor);
+	if(game -> player)
+		mlx_destroy_image(game -> mlx, game -> player);
+		if(game -> collectible)
+		mlx_destroy_image(game -> mlx, game -> collectible);
+		if(game -> exit)
+		mlx_destroy_image(game -> mlx, game -> exit);
+	
+}
+void close_window_free(t_game *game)
+{
+	destroy_img(game);
+	if (game -> win)
+		mlx_destroy_window(game -> mlx, game -> win);
+	#ifdef linux
+	mlx_destroy_display(game -> mlx);
+	#endif
+	if(game -> mlx)
+		free(game -> mlx);
+	free_map(game -> map);
+	exit(0);
+}
 int	key_hook(int keycode, t_game *game)
 {
 	if (keycode == KEY_ESC)
