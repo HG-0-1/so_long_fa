@@ -16,14 +16,14 @@
 #include <mlx.h>
 #include <stdlib.h>
 
-int	map_height(void)
+int	map_height(char *myfile)
 {
 	int		fd;
 	char	*line;
 	int		map_len;
 
 	map_len = 0;
-	fd = open("map.ber", O_RDONLY);
+	fd = open(myfile, O_RDONLY);
 	if (fd < 0)
 		return (0);
 	line = get_next_line(fd);
@@ -67,7 +67,7 @@ int	rec_map(char **map, int height)
 	return (1);
 }
 
-char	**read_map(void)
+char	**read_map(cahr *myfile)
 {
 	int		i;
 	char	**map;
@@ -79,7 +79,7 @@ char	**read_map(void)
 	if (!map)
 		return (NULL);
 	
-	fd = open("map.ber", O_RDONLY);
+	fd = open(myfile, O_RDONLY);
 	if (fd < 0)
 	{
 		free(map);
