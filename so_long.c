@@ -86,14 +86,18 @@ int	map_status(char **map, int height, int *width)
 	return (0);
 }
 
-int	main(void)
+int	main(int argc, char **argv)
 {
 	char	**map;
 	int		height;
 	int		width;
 	t_game	game;
-
-	map = read_map();
+	if (argc != 2)
+	{
+		ft_printf("error");
+		return(1);
+	}
+	map = read_map(argv[1]);
 	if (!map)
 	{
 		ft_printf("%s", "Error: cannot read map\n");
