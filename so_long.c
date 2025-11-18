@@ -58,7 +58,7 @@ void close_window_free(t_game *game)
 int	key_hook(int keycode, t_game *game)
 {
 	if (keycode == KEY_ESC)
-		exit(0);
+		close_widow(game);
 	else if (keycode == KEY_W)
 		move_up(game);
 	else if (keycode == KEY_A)
