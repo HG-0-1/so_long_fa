@@ -51,6 +51,7 @@ int	man_my_main(char **map, int height, int width, t_game *game)
 	game->height = height;
 	game->mlx = mlx_init();
 	game->win = mlx_new_window(game->mlx, width * 64, height * 64, "so_long");
+	mlx_hook(game -> win, 17, 0, close_window, game);
 	load_img(game);
 	if (!game->wall || !game->floor || !game->exit || !game->player
 		|| !game->collectible)
