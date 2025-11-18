@@ -33,3 +33,8 @@ void	move_right(t_game *game)
 {
 	move_player(game, 1, 0);
 }
+int close_windo(t_game *game)
+{
+	exit(0);
+	return(0);
+}
