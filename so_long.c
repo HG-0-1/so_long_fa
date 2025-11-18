@@ -103,7 +103,7 @@ int	main(int argc, char **argv)
 		ft_printf("%s", "Error: cannot read map\n");
 		return (1);
 	}
-	height = map_height();
+	height = map_height(argv[1]);
 	if (height <= 0)
 	{
 		free_map(map);
