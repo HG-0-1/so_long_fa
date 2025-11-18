@@ -77,5 +77,5 @@ int	check_element(char **map, int height, int width, int collectible)
 		}
 		i++;
 	}
-	return (!(player != 1 || exit < 1 || collectible < 1));
+	return (!(player != 1 || exit != 1 || collectible < 1));
 }
