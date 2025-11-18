@@ -35,6 +35,6 @@ void	move_right(t_game *game)
 }
 int close_windo(t_game *game)
 {
-	exit(0);
+	close_window_free(game);
 	return(0);
 }
