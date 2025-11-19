@@ -6,7 +6,7 @@
 /*   By: helfayez <helfayez@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 08:58:54 by helfayez          #+#    #+#             */
-/*   Updated: 2025/11/15 16:07:44 by helfayez         ###   ########.fr       */
+/*   Updated: 2025/11/19 17:06:26 by helfayez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ typedef struct s_game
 # define KEY_A 97
 # define KEY_S 115
 # define KEY_D 100
+# define KEY_X 17
 
 //move
 void		move_up(t_game *game);
@@ -53,10 +54,10 @@ int			check_wall_side(char **map, int width, int height);
 int			pp(char **map, int *player, int i, int j);
 int			check_element(char **map, int height, int width, int collectible);
 //map
-int			map_height(void);
+int			map_height(char *myfile);
 int			len_of_map(char *line);
 int			rec_map(char **map, int height);
-char		**read_map(void);
+char		**read_map(char *myfile);
 
 int			key_hook(int keycode, t_game *game);
 
@@ -69,5 +70,9 @@ void		draw_player(t_game *game);
 void		find_my_man(t_game *game);
 int			count_c(t_game *game);
 void		if_c(t_game *game, int newx, int newy);
+int			close_window(void *param);
+void		close_window_free(t_game *game);
+int			map_are_ok(char **map);
+void		destroy_img(t_game *game);
 
 #endif

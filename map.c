@@ -6,7 +6,7 @@
 /*   By: helfayez <helfayez@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 08:59:04 by helfayez          #+#    #+#             */
-/*   Updated: 2025/11/15 18:25:20 by helfayez         ###   ########.fr       */
+/*   Updated: 2025/11/19 12:08:33 by helfayez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int	rec_map(char **map, int height)
 	return (1);
 }
 
-char	**read_map(cahr *myfile)
+char	**read_map(char *myfile)
 {
 	int		i;
 	char	**map;
@@ -75,10 +75,9 @@ char	**read_map(cahr *myfile)
 	int		fd;
 
 	i = 0;
-	map = malloc(sizeof(char *) * (map_height() + 1));
+	map = malloc(sizeof(char *) * (map_height(myfile) + 1));
 	if (!map)
 		return (NULL);
-	
 	fd = open(myfile, O_RDONLY);
 	if (fd < 0)
 	{

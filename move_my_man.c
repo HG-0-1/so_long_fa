@@ -6,7 +6,7 @@
 /*   By: helfayez <helfayez@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 18:16:58 by helfayez          #+#    #+#             */
-/*   Updated: 2025/11/15 14:26:06 by helfayez         ###   ########.fr       */
+/*   Updated: 2025/11/19 16:43:52 by helfayez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,7 @@ void	move_player(t_game *game, int dx, int dy)
 			if (game->coins_collected == game->total_coins)
 			{
 				printf("%s", "you win");
+				destroy_img(game);
 				exit(0);
 			}
 			else
@@ -100,6 +101,6 @@ void	move_player(t_game *game, int dx, int dy)
 		game->player_y = new_y;
 		game->moves++;
 		update_game(game);
-		printf("%d", game->moves);
+		printf("moves: %d\n", game->moves);
 	}
 }

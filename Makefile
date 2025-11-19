@@ -1,12 +1,12 @@
 NAME = so_long
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 INCLUDES = -I./minilibx-linux -I. -I./printf
 LDFLAGS = -L./minilibx-linux -lmlx -lXext -lX11 -lm
 LIBFT = libft/libft.a
 PRINTF = printf/libftprintf.a
 
-SRCS = so_long.c move.c get_next_line.c get_next_line_utils.c wall.c map.c img.c move_my_man.c 
+SRCS = so_long.c move.c get_next_line.c get_next_line_utils.c wall.c map.c img.c move_my_man.c free_all.c 
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)

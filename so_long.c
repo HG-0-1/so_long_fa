@@ -6,7 +6,7 @@
 /*   By: helfayez <helfayez@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 08:58:58 by helfayez          #+#    #+#             */
-/*   Updated: 2025/11/15 17:56:47 by helfayez         ###   ########.fr       */
+/*   Updated: 2025/11/19 17:06:48 by helfayez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,49 +16,17 @@
 #include <fcntl.h>
 #include <mlx.h>
 #include <stdlib.h>
+#include "ft_printf.h"
+#include "get_next_line.h"
+#include "so_long.h"
+#include <fcntl.h>
+#include <mlx.h>
+#include <stdlib.h>
 
-void	free_map(char **map)
-{
-	int	i;
-
-	i = 0;
-	if (!map)
-		return ;
-	while (map[i])
-		free(map[i++]);
-	free(map);
-}
-void destroy_img(t_game *game)
-{
-	if(game -> wall)
-		mlx_destroy_image(game -> mlx, game -> wall);
-	if(game -> floor)
-		mlx_destroy_image(game -> mlx, game -> floor);
-	if(game -> player)
-		mlx_destroy_image(game -> mlx, game -> player);
-		if(game -> collectible)
-		mlx_destroy_image(game -> mlx, game -> collectible);
-		if(game -> exit)
-		mlx_destroy_image(game -> mlx, game -> exit);
-	
-}
-void close_window_free(t_game *game)
-{
-	destroy_img(game);
-	if (game -> win)
-		mlx_destroy_window(game -> mlx, game -> win);
-	#ifdef linux
-	mlx_destroy_display(game -> mlx);
-	#endif
-	if(game -> mlx)
-		free(game -> mlx);
-	free_map(game -> map);
-	exit(0);
-}
 int	key_hook(int keycode, t_game *game)
 {
 	if (keycode == KEY_ESC)
-		close_widow(game);
+		close_window(game);
 	else if (keycode == KEY_W)
 		move_up(game);
 	else if (keycode == KEY_A)
@@ -111,6 +79,15 @@ int	map_status(char **map, int height, int *width)
 	}
 	return (0);
 }
+int map_are_ok(char **map)
+{
+	if (!map)
+	{
+		ft_printf("%s", "Error: cannot read map\n");
+		return (1);
+	}
+	return (0);
+}
 
 int	main(int argc, char **argv)
 {
@@ -118,17 +95,14 @@ int	main(int argc, char **argv)
 	int		height;
 	int		width;
 	t_game	game;
+
 	if (argc != 2)
 	{
-		ft_printf("error");
-		return(1);
-	}
-	map = read_map(argv[1]);
-	if (!map)
-	{
-		ft_printf("%s", "Error: cannot read map\n");
+		ft_printf("Error: invaled argv");
 		return (1);
 	}
+	map = read_map(argv[1]);
+
 	height = map_height(argv[1]);
 	if (height <= 0)
 	{
@@ -138,7 +112,7 @@ int	main(int argc, char **argv)
 	}
 	if (map_status(map, height, &width))
 		return (1);
-	if (man_my_main(map, height, width, &game))
-		return (1);
+		if (man_my_main(map, height, width, &game))
+		return (1);	
 	return (0);
 }

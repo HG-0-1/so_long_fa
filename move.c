@@ -6,7 +6,7 @@
 /*   By: helfayez <helfayez@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 08:59:01 by helfayez          #+#    #+#             */
-/*   Updated: 2025/11/10 18:01:01 by helfayez         ###   ########.fr       */
+/*   Updated: 2025/11/19 12:07:05 by helfayez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,4 @@ void	move_left(t_game *game)
 void	move_right(t_game *game)
 {
 	move_player(game, 1, 0);
-}
-int close_windo(t_game *game)
-{
-	close_window_free(game);
-	return(0);
 }

@@ -1,0 +1,40 @@
+{
+   MiniLibX X11
+   Memcheck:Leak
+   fun:strdup
+   fun:XOpenDisplay
+}
+
+{
+   MiniLibX XCB
+   Memcheck:Leak
+   fun:xcb_connect_to_display_with_auth_info
+   fun:_XConnectXCB
+}
+
+{
+   MiniLibX Xext
+   Memcheck:Leak
+   fun:XextAddDisplay
+}
+
+{
+   MiniLibX X11 internal
+   Memcheck:Leak
+   fun:XInitExtension
+}
+
+{
+   MiniLibX X11 Keymap
+   Memcheck:Leak
+   fun:XkbGetMap
+   fun:XkbKeycodeToKeysym
+}
+
+{
+   MiniLibX MLX new image
+   Memcheck:Leak
+   fun:mlx_int_new_xshm_image
+   fun:mlx_new_image
+}
+   
