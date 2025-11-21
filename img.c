@@ -70,3 +70,20 @@ void	img_in_map(t_game *game)
 		i++;
 	}
 }
+
+void my_path_istrue(t_game *game)
+{
+	int x;
+	int y;
+	char **temp;
+
+	temp = copy_map(game);
+	find_my_man(game ,x,y);
+	fl(temp,x,y);
+	if (!checkp(temp))
+	{
+		free(map);
+		printerror
+	}
+	free_map(temp);
+}
