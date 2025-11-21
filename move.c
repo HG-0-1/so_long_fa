@@ -33,3 +33,26 @@ void	move_right(t_game *game)
 {
 	move_player(game, 1, 0);
 }
+
+
+int	find_my_man(char **map)
+{
+	int	y;
+	int	x;
+
+	y = 0;
+	while (map[y])
+	{
+		x = 0;
+		while (map[y][x])
+		{
+			if (map[y][x] == 'E' || map[y][x] == 'C')
+			{
+				return 0;
+			}
+			x++;
+		}
+		y++;
+	}
+	return 1;
+}
