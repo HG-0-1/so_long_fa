@@ -79,3 +79,16 @@ int	check_element(char **map, int height, int width, int collectible)
 	}
 	return (!(player != 1 || exit != 1 || collectible < 1));
 }
+char **copy_map(t_game *game)
+{
+	int i;
+	i = 0;
+	char **cpoy = malloc(sizeof(char *) * (game -> height + 1));
+	while(i < game -> height)
+		{
+			copy[i] = ft_strdup(game -> map[i]);
+			i++;
+		}
+	copy[i] = NULL;
+	return copy;
+}
